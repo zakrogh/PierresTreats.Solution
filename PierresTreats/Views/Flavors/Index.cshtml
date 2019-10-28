@@ -3,24 +3,21 @@
 }
 
 @using PierresTreats.Models;
-@model IEnumerable<PierresTreats.Models.Flavor>
+@model List<PierresTreats.Models.Flavor>;
 
-<h1>Flavors for @User.Identity.Name</h1>
+<h1>Flavors</h1>
 
-@if (Model.Any())
-{
-  <ul>
-    @foreach (Flavor flavor in Model)
-    {
-      <li>@Html.ActionLink($"{flavor.Name}", "Details", new { id = flavor.FlavorId })</li>
-    }
-  </ul>
-}
-else
+@if (@Model.Count == 0)
 {
   <h3>No flavors have been added yet!</h3>
 }
 
+@foreach (Flavor flavor in Model)
+{
+  <li>@Html.ActionLink($"{flavor.Name}", "Details", new { id = flavor.FlavorId })</li>
+}
+
 <p>@Html.ActionLink("Add new flavor", "Create")</p>
 
-<p>@Html.ActionLink("Home", "Index", "Home")</p>
+<br><hr>
+<button type="button" class="btn btn-danger" onclick="window.location.href = '/'">Home</button>

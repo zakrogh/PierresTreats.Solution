@@ -6,7 +6,7 @@
 
 <h2>Add a treat</h2>
 
-<h4>Add a treat to this task: @Html.DisplayFor(model => model.Name)</h4>
+<h4>Add a treat to this flavor: @Html.DisplayFor(model => model.Name)</h4>
 
 @using (Html.BeginForm())
 {
@@ -18,4 +18,6 @@
     <input type="submit" value="Save" />
 }
 
-<p>@Html.ActionLink("Back to list", "Index")</p>
+<p>@Html.ActionLink("Back to flavors", "Index")</p>
+<br><hr>
+<button type="button" class="btn btn-danger" onclick="window.location.href = '/'">Home</button>
